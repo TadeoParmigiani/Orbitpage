@@ -13,8 +13,8 @@ import { Metadata } from "next";
 import ValuesSection from "@/components/valores/valores";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+  title: "Orbit",
+  description: "Transformamos ideas en soluciones",
   // other metadata
 };
 
