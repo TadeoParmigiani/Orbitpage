@@ -23,12 +23,22 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <AboutSectionOne />
-      <Features />
-      <Brands />
-      <ValuesSection/>
-      <Testimonials />
-      <Contact />
+      <section id="sobre-nosotros">
+        <AboutSectionOne />
+      </section>
+      <section id="nuestros-servicios">
+        <Features />
+      </section>
+      <section id="nuestros-valores">
+        <ValuesSection />
+      </section>
+      <section id="testimonios">
+        <Testimonials />
+      </section>
+      <section id="contacto">
+        <Contact />
+      </section>
     </>
   );
 }
+

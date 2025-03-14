@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
 
@@ -7,68 +9,102 @@ const checkIcon = (
   </svg>
 );
 
+// Animación desde los lados
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -100 }, // Desde la izquierda
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 100 }, // Desde la derecha
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } }
+};
+
 const AboutSectionOne = () => {
   const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
+    <motion.p
+      className="mb-5 flex items-center text-xl font-extralight text-body-color"
+      variants={fadeInLeft} // Aparece desde la izquierda
+    >
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
         {checkIcon}
       </span>
       {text}
-    </p>
+    </motion.p>
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28">
+    <motion.div
+      id="about"
+      className="pt-16 md:pt-20 lg:pt-28"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }} // Se repite la animación
+    >
       <div className="container">
-        <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
+        <div className="border-b border-body-color/[.15] pb-16 font-extralight dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
+            <motion.div className="w-full px-4 lg:w-1/2" variants={fadeInLeft}>
               <SectionTitle
                 title="Sobre Nosotros"
-                paragraph="Somos un equipo apasionado por crear soluciones que impulsan negocios y mejoran la experiencia de nuestros clientes. Nos enfocamos en la innovación, la calidad y el trabajo en equipo para ofrecer los mejores resultados. "
+                paragraph="Somos un equipo apasionado por crear soluciones que impulsan negocios y mejoran la experiencia de nuestros clientes. Nos enfocamos en la innovación, la calidad y el trabajo en equipo para ofrecer los mejores resultados."
                 mb="44px"
               />
 
-              <div
-                className="mb-12 max-w-[570px] lg:mb-0"
-                data-wow-delay=".15s"
-              >
+              <motion.div className="mb-12 max-w-[570px] lg:mb-0" variants={fadeInLeft}>
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
                     <List text="Compromiso" />
-                    <List text=" Enfoque en el cliente" />
-                    <List text=" Innovación constante" />
+                    <List text="Enfoque en el cliente" />
+                    <List text="Innovación constante" />
                   </div>
-
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
                     <List text="Trabajo en equipo" />
                     <List text="Resultados garantizados" />
                     <List text="Crecimiento continuo" />
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="w-full px-4 lg:w-1/2">
-              <div className="relative mx-auto aspect-[25/24] max-w-[500px] lg:mr-0">
-                <Image
-                  src="/images/about/about.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-0"
+            <motion.div className="w-full px-4 lg:w-1/2" variants={fadeInRight}>
+              <div className="relative mx-auto aspect-[25/24] max-w-[600px]">
+                <motion.div variants={fadeInRight}>
+                  <Image
+                    src="/images/about/image-3.jpg"
+                    alt="about-background"
+                    fill
+                    className="relative -z-10 scale-75 lg:ml-8 opacity-80"
+                  />
+                </motion.div>
+                <motion.div
+                  className="relative border-primary/10 bg-primary/5 -z-10 h-96 w-80 border backdrop-blur-[6px] dark:border-white/10 dark:bg-white/10"
+                  initial={{ opacity: 0, x: 120, y: 210 }} // Empieza desplazado a la derecha y abajo
+                  animate={{ opacity: 1, x: 20, y: 210 }} // Mantiene la posición vertical pero entra desde la derecha
+                  transition={{ duration: 1, ease: "easeOut" }}
                 />
-                <Image
-                  src="/images/about/about.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto hidden max-w-full drop-shadow-three dark:block dark:drop-shadow-none lg:mr-0"
-                />
+                <motion.div variants={fadeInRight}>
+                  <Image
+                    src="/images/about/image-2.jpg"
+                    alt="about-image"
+                    fill
+                    className="relative mx-auto max-h-80 max-w-80 drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-80"
+                  />
+                </motion.div>
+                <motion.div variants={fadeInRight}>
+                  <Image
+                    src="/images/about/image-2.jpg"
+                    alt="about-image"
+                    fill
+                    className="relative mx-auto hidden max-h-96 max-w-80 drop-shadow-three dark:block dark:drop-shadow-none translate-y-[230px] lg:mr-72"
+                  />
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

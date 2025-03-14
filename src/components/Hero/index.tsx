@@ -1,35 +1,47 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
-      >
+        className="relative z-10 overflow-hidden bg-white pb-[200px] pt-[200px] dark:bg-gray-dark md:pb-[240px] md:pt-[240px] xl:pb-[280px] xl:pt-[280px] 2xl:pb-[260px] 2xl:pt-[285px]"
+         style={{
+           backgroundImage: 'url("../../images/about/or.jp")',
+           backgroundSize: '100%',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'no-repeat',
+           width: "100%",  // Ajusta el tamaño del contenedor según necesites
+           height: "100%",
+        
+         }}
+       >
         <div className="container">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
-              <div className="mx-auto max-w-[800px] text-center">
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                Transformamos ideas en soluciones
+              <div className="mx-auto max-w-[900px] text-center">
+              <h1 className="mb-5 font-semibold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight">
+                ORBIT
                 </h1>
-                <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
+                <h2 className="mb-5 font-semibold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                Donde las Ideas Giran en Soluciones
+                </h2>
+                <p className="mb-12 font-extralight text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                 En Orbit, combinamos creatividad y tecnología para ofrecer soluciones innovadoras
                  que llevan tu negocio al siguiente nivel.
                  Nuestro compromiso es brindarte diseño, 
                  desarrollo y estrategias personalizadas que se adapten a tus necesidades.
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  
-                  <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                    style={{ backgroundColor: '#799ce7' }}
-                  >
-                    Contactanos!
-                  </Link>
+                <Link 
+                  href="/#sobre-nosotros"
+                  className=" rounded-full bg-slate-800 text-gray-400 px-8 py-4 text-lg font-semibold hover:bg-gray-300 shadow-lg text-center flex flex-col items-center"
+                >
+                  Contactanos!
+                </Link>
                 </div>
               </div>
             </div>
@@ -276,7 +288,7 @@ const Hero = () => {
               </radialGradient>
             </defs>
           </svg>
-        </div>
+        </div> 
       </section>
     </>
   );
