@@ -23,7 +23,7 @@ const ValuesSection = () => {
           className="text-left lg:w-1/2"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true }}
         >
           <motion.h2
             className="text-6xl text-gray-800 dark:text-primary font-extralight"
@@ -61,7 +61,7 @@ const ValuesSection = () => {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.0 }}
+          viewport={{ once: true }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,13 +94,18 @@ const ValuesSection = () => {
               stroke="#ffffff"
               strokeWidth="0.5"
             />
-            <circle
-              cx="250"
-              cy="250"
-              r="20"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="1"
+
+            {/*
+              Reemplazamos el círculo central (r="20") por una imagen.
+              Ajusta la ruta de la imagen en xlink:href a la ubicación real de tu archivo.
+            */}
+            <image
+              xlinkHref="./images/about/orbit.png"  
+              x="230" 
+              y="230"
+              width="40"
+              height="40"
+              preserveAspectRatio="xMidYMid meet"
             />
 
             {/* Planetas con textos */}
@@ -142,11 +147,9 @@ const ValuesSection = () => {
                 .planet {
                   animation: spin 40s linear infinite;
                 }
-
                 .planet text {
                   animation: spin-reverse 40s linear infinite;
                 }
-
                 @keyframes spin {
                   from {
                     transform: rotate(0deg);
@@ -155,7 +158,6 @@ const ValuesSection = () => {
                     transform: rotate(360deg);
                   }
                 }
-
                 @keyframes spin-reverse {
                   from {
                     transform: rotate(0deg);

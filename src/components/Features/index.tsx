@@ -24,7 +24,7 @@ const Features = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true }}
         >
           <motion.div variants={fadeInUp}>
             <SectionTitle
@@ -41,7 +41,7 @@ const Features = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true }}
         >
           {featuresData.map((feature, index) => (
             <motion.div key={feature.id} variants={fadeInUp}>

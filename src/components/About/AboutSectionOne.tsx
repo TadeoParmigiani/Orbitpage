@@ -39,7 +39,8 @@ const AboutSectionOne = () => {
       className="pt-16 md:pt-20 lg:pt-28"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // Se repite la animación
+      viewport={{ once: true }} // Solo se ejecuta la primera vez
+     
     >
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 font-extralight dark:border-white/[.15] md:pb-20 lg:pb-28">

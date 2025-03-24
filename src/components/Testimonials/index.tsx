@@ -61,7 +61,7 @@ const TeamSection = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true }}
           variants={fadeInScale}
           custom={0} // Sin delay para el título
           className="text-center"
@@ -83,7 +83,7 @@ const TeamSection = () => {
               initial="hidden"
               whileInView="visible"
               exit="hidden"
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true }}
               custom={index + 1} // Delay en cascada después del título
             >
               <img

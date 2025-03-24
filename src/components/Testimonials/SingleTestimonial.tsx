@@ -48,7 +48,7 @@ const SingleTestimonial = ({
       variants={scaleVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // Reactiva la animación cuando aparece en pantalla
+      viewport={{ once: true }}
       custom={index}
     >
       <div className="rounded-sm bg-white p-8 shadow-two duration-300 hover:shadow-one dark:bg-dark dark:shadow-three dark:hover:shadow-gray-dark lg:px-5 xl:px-8">
@@ -58,7 +58,7 @@ const SingleTestimonial = ({
           variants={scaleVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           custom={index + 1} // Pequeño retraso después de la tarjeta
         >
           “{content}
@@ -73,7 +73,7 @@ const SingleTestimonial = ({
               variants={scaleVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               custom={index + 2} // Retraso en cascada
             >
               {name}
