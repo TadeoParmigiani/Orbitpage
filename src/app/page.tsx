@@ -23,10 +23,10 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <section id="sobre-nosotros">
+      <section id="sobre-nosotros"   className="relative z-20 bg-[#121723] py-8">
         <AboutSectionOne />
       </section>
-      <section id="nuestros-servicios">
+      <section id="nuestros-servicios" className="relative z-20 bg-[#121723] py-16">
         <Features />
       </section>
       <section id="nuestros-valores">
@@ -35,7 +35,7 @@ export default function Home() {
       <section id="testimonios">
         <Testimonials />
       </section>
-      <section id="contacto">
+      <section id="contacto" className="relative z-20 bg-[#121723]">
         <Contact />
       </section>
     </>

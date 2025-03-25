@@ -36,7 +36,7 @@ const AboutSectionOne = () => {
   return (
     <motion.div
       id="about"
-      className="pt-16 md:pt-20 lg:pt-28"
+      className="pt-16 z-20 md:pt-20 lg:pt-28"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }} // Solo se ejecuta la primera vez
