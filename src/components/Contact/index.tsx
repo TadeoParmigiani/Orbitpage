@@ -1,4 +1,36 @@
+"use client";
+import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
+
 const Contacto = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    es: {
+      title: "Hablemos sobre tu proyecto",
+      paragraph:
+        "Cuéntanos qué necesitas y nuestro equipo se pondrá en contacto contigo lo antes posible.",
+      nameLabel: "Tu Nombre",
+      namePlaceholder: "Ingresa tu nombre",
+      emailLabel: "Tu Correo Electrónico",
+      emailPlaceholder: "Ingresa tu correo",
+      messageLabel: "Tu Mensaje",
+      messagePlaceholder: "Describe tu consulta",
+      buttonText: "Enviar",
+    },
+    en: {
+      title: "Let's talk about your project",
+      paragraph:
+        "Tell us what you need and our team will get in touch with you as soon as possible.",
+      nameLabel: "Your Name",
+      namePlaceholder: "Enter your name",
+      emailLabel: "Your Email",
+      emailPlaceholder: "Enter your email",
+      messageLabel: "Your Message",
+      messagePlaceholder: "Describe your inquiry",
+      buttonText: "Send",
+    },
+  };
+
   return (
     <section id="contacto" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -6,10 +38,10 @@ const Contacto = () => {
           {/* Sección de texto a la izquierda */}
           <div className="w-full px-4 lg:w-1/3">
             <h2 className="mb-4 text-6xl font-extralight text-black dark:text-primary sm:text-4xl">
-              Hablemos sobre tu proyecto
+              {content[language].title}
             </h2>
             <p className="mb-6 text-xl font-extralight text-body-color">
-              Cuéntanos qué necesitas y nuestro equipo se pondrá en contacto contigo lo antes posible.
+              {content[language].paragraph}
             </p>
           </div>
 
@@ -21,11 +53,11 @@ const Contacto = () => {
                   <div className="w-full px-4 md:w-1/2">
                     <div className="mb-6">
                       <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
-                        Tu Nombre
+                        {content[language].nameLabel}
                       </label>
                       <input
                         type="text"
-                        placeholder="Ingresa tu nombre"
+                        placeholder={content[language].namePlaceholder}
                         className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       />
                     </div>
@@ -33,11 +65,11 @@ const Contacto = () => {
                   <div className="w-full px-4 md:w-1/2">
                     <div className="mb-6">
                       <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
-                        Tu Correo Electrónico
+                        {content[language].emailLabel}
                       </label>
                       <input
                         type="email"
-                        placeholder="Ingresa tu correo"
+                        placeholder={content[language].emailPlaceholder}
                         className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       />
                     </div>
@@ -45,18 +77,18 @@ const Contacto = () => {
                   <div className="w-full px-4">
                     <div className="mb-6">
                       <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
-                        Tu Mensaje
+                        {content[language].messageLabel}
                       </label>
                       <textarea
                         rows={4}
-                        placeholder="Describe tu consulta"
+                        placeholder={content[language].messagePlaceholder}
                         className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       ></textarea>
                     </div>
                   </div>
                   <div className="w-full px-4">
                     <button className="w-full rounded-md bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90">
-                      Enviar
+                      {content[language].buttonText}
                     </button>
                   </div>
                 </div>

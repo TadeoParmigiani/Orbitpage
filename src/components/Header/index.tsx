@@ -5,8 +5,12 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
 
 const Header = () => {
+  // Obtener el idioma actual del contexto
+  const { language } = useLanguage(); // Asumiendo que tienes un contexto que te devuelve el idioma actual
+
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -52,6 +56,9 @@ const Header = () => {
     }
   };
 
+  // Obtener el menú según el idioma seleccionado
+  const menuItems = menuData[language] || menuData["es"]; // Si no hay idioma, toma el español por defecto
+
   return (
     <header
       className={`header left-0 top-0 z-40 flex w-full items-center ${
@@ -87,7 +94,7 @@ const Header = () => {
                 }`}
               >
                 <ul className="block lg:flex lg:space-x-12">
-                  {menuData.map((menuItem, index) => (
+                  {menuItems.map((menuItem, index) => (
                     <li key={index} className="group relative">
                       {menuItem.path ? (
                         <a

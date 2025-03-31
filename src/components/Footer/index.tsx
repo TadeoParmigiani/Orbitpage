@@ -51,7 +51,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
+                    href="https://www.instagram.com/orbit.dev/"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"

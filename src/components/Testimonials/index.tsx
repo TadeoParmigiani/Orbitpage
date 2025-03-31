@@ -2,41 +2,78 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import SectionTitle from "../Common/SectionTitle";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
 
-const teamData = [
-  {
-    id: 1,
-    name: "Tadeo Parmigiani",
-    role: "Líder Técnico",
-    image: "/images/testimonials/FOTO CV.JPG",
-    linkedin: "https://www.linkedin.com/in/tadeoparmigiani/",
-    github: "https://github.com/TadeoParmigiani",
-  },
-  {
-    id: 2,
-    name: "Ezequiel Martin",
-    role: "Desarrollador Full Stack",
-    image: "/images/testimonials/eze.jpg",
-    linkedin: "#",
-    github: "#",
-  },
-  {
-    id: 3,
-    name: "Agostino Scopetta",
-    role: "Product Owner",
-    image: "/images/testimonials/scope.jpeg",
-    linkedin: "#",
-    github: "#",
-  },
-  {
-    id: 4,
-    name: "Fabrizio Pelozzi",
-    role: "Desarrollador Full Stack",
-    image: "/images/testimonials/fabras.png",
-    linkedin: "#",
-    github: "#",
-  },
-];
+const teamData = {
+  es: [
+    {
+      id: 1,
+      name: "Tadeo Parmigiani",
+      role: "Líder Técnico",
+      image: "/images/testimonials/FOTO CV.JPG",
+      linkedin: "https://www.linkedin.com/in/tadeoparmigiani/",
+      github: "https://github.com/TadeoParmigiani",
+    },
+    {
+      id: 2,
+      name: "Ezequiel Martin",
+      role: "Desarrollador Full Stack",
+      image: "/images/testimonials/eze.jpg",
+      linkedin: "https://www.linkedin.com/in/ezequielnicolasmartin/",
+      github: "#",
+    },
+    {
+      id: 3,
+      name: "Agostino Scopetta",
+      role: "Desarrollador Full Stack",
+      image: "/images/testimonials/scope.jpeg",
+      linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
+      github: "#",
+    },
+    {
+      id: 4,
+      name: "Fabrizio Pelozzi",
+      role: "Desarrollador Full Stack",
+      image: "/images/testimonials/fabras.png",
+      linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
+      github: "#",
+    },
+  ],
+  en: [
+    {
+      id: 1,
+      name: "Tadeo Parmigiani",
+      role: "Technical Lead",
+      image: "/images/testimonials/FOTO CV.JPG",
+      linkedin: "https://www.linkedin.com/in/tadeoparmigiani/",
+      github: "https://github.com/TadeoParmigiani",
+    },
+    {
+      id: 2,
+      name: "Ezequiel Martin",
+      role: "Full Stack Developer",
+      image: "/images/testimonials/eze.jpg",
+      linkedin: "https://www.linkedin.com/in/ezequielnicolasmartin/",
+      github: "#",
+    },
+    {
+      id: 3,
+      name: "Agostino Scopetta",
+      role: "Full Stack Developer",
+      image: "/images/testimonials/scope.jpeg",
+      linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
+      github: "#",
+    },
+    {
+      id: 4,
+      name: "Fabrizio Pelozzi",
+      role: "Full Stack Developer",
+      image: "/images/testimonials/fabras.png",
+      linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
+      github: "#",
+    },
+  ],
+};
 
 // 🔥 Variantes de animación
 const fadeInScale = {
@@ -54,6 +91,22 @@ const fadeInScale = {
 };
 
 const TeamSection = () => {
+  const { language } = useLanguage();
+
+  // Traducciones para el título y párrafo de la sección
+  const content = {
+    es: {
+      title: "Conoce a Nuestro Equipo",
+      paragraph:
+        "En Orbit, somos un grupo de desarrolladores y creativos apasionados que trabajamos juntos para dar vida a ideas innovadoras. Cada miembro aporta su talento y compromiso para crear soluciones con impacto positivo.",
+    },
+    en: {
+      title: "Meet Our Team",
+      paragraph:
+        "At Orbit, we are a group of passionate developers and creatives working together to bring innovative ideas to life. Each member contributes their talent and commitment to creating solutions with a positive impact.",
+    },
+  };
+
   return (
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28 lg:pt-20">
       <div className="container">
@@ -67,15 +120,15 @@ const TeamSection = () => {
           className="text-center"
         >
           <SectionTitle
-            title="Conoce a Nuestro Equipo"
-            paragraph="En Orbit, somos un grupo de desarrolladores y creativos apasionados que trabajamos juntos para dar vida a ideas innovadoras. Cada miembro aporta su talento y compromiso para crear soluciones con impacto positivo."
+            title={content[language].title}
+            paragraph={content[language].paragraph}
             center
           />
         </motion.div>
 
         {/* 🔥 Animamos las tarjetas */}
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-          {teamData.map((member, index) => (
+          {teamData[language].map((member, index) => (
             <motion.div
               key={member.id}
               className="bg-white dark:bg-bg-color-dark rounded-2xl shadow-lg p-6 text-center transition-transform transform hover:scale-105"
@@ -96,10 +149,18 @@ const TeamSection = () => {
               </h3>
               <p className="text-gray-500 dark:text-gray-400">{member.role}</p>
               <div className="flex justify-center mt-4 space-x-4">
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedin className="text-gray-500 dark:text-gray-400 text-xl hover:text-gray-700 dark:hover:text-white transition-colors" />
                 </a>
-                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaGithub className="text-gray-500 dark:text-gray-400 text-xl hover:text-gray-700 dark:hover:text-white transition-colors" />
                 </a>
               </div>
