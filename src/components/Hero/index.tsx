@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
+import { useLanguage } from "@/../LanguageContext";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,10 +12,9 @@ import { loadSlim } from "tsparticles-slim";
 
 const Hero = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-  const { language } = useLanguage(); // Obtenemos el idioma desde el contexto
+  const { language } = useLanguage();
 
   useEffect(() => {
-    // Se ejecuta en cliente para obtener el tamaño de la ventana
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
   }, []);
 
@@ -23,7 +22,6 @@ const Hero = () => {
     await loadSlim(engine);
   };
 
-  // Textos en español e inglés según el idioma del contexto
   const texts = {
     es: {
       title1: "Donde las Ideas Giran en Soluciones",
@@ -43,7 +41,7 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen bg-gray-900 overflow-hidden">
-      {/* Contenedor de partículas con fondo transparente */}
+      {/* Fondo con partículas */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Particles
           id="tsparticles"
@@ -62,23 +60,23 @@ const Hero = () => {
         />
       </div>
 
-      {/* Contenido principal del Hero */}
+      {/* Contenido principal */}
       <div className="relative z-10 flex items-center h-full">
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1 }}
           className="container mx-auto px-6 text-white"
         >
-          <div className="flex flex-wrap items-center">
-            {/* Columna de Texto */}
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Texto */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className="w-full md:w-1/2 text-left"
+              className="w-full md:w-1/2 text-center md:text-left"
             >
-              <h2 className="mb-5 font-semibold leading-tight sm:text-4xl md:text-5xl">
+              <h2 className="mb-5 font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl">
                 <Typewriter
                   options={{
                     strings: [
@@ -90,22 +88,22 @@ const Hero = () => {
                   }}
                 />
               </h2>
-              <p className="mb-8 text-gray-300 sm:text-lg md:text-xl">
+              <p className="mb-8 text-gray-300 text-base sm:text-lg md:text-xl">
                 {texts[language].description}
               </p>
               <motion.div>
                 <Link
                   href="/#sobre-nosotros"
-                  className="relative inline-flex items-center justify-center p-4 px-8 py-3 font-medium text-white transition-all duration-300 ease-out rounded-full shadow-md bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500"
+                  className="inline-block px-6 py-3 font-medium text-white transition-all duration-300 ease-out rounded-full shadow-md bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500"
                 >
                   {texts[language].contactButton}
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Columna de Animación de Órbitas */}
-            <motion.div className="w-full md:w-1/2 flex justify-end mt-8 md:mt-0">
-              <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+            {/* Animación de órbitas */}
+            <motion.div className="w-full md:w-1/2 flex justify-center md:justify-end">
+              <div className="relative w-[250px] sm:w-[300px] md:w-[400px] h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center">
                 {[...Array(5)].map((_, i) => {
                   const size = 100 + i * 50;
                   const duration = 7 - i;
@@ -136,9 +134,7 @@ const Hero = () => {
                         style={{
                           top: "50%",
                           left: "50%",
-                          transform: `translate(-50%, -50%) translateY(${
-                            size / 2 - 4
-                          }px)`,
+                          transform: `translate(-50%, -50%) translateY(${size / 2 - 4}px)`,
                         }}
                       />
                     </motion.div>
@@ -155,7 +151,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce z-10"
       >
         <FontAwesomeIcon icon={faChevronDown} className="text-gray-400 text-3xl" />
       </motion.div>

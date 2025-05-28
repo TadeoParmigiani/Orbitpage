@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
-import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
+import { useLanguage } from "@/../LanguageContext";
 
 // Ícono de check
 const checkIcon = (
@@ -25,7 +25,6 @@ const fadeInRight = {
 const AboutSectionOne = () => {
   const { language } = useLanguage();
 
-  // Traducciones para la sección
   const content = {
     es: {
       sectionTitle: "Sobre Nosotros",
@@ -43,7 +42,6 @@ const AboutSectionOne = () => {
     },
   };
 
-  // Componente para cada ítem de la lista
   const List = ({ text }: { text: string }) => (
     <motion.p
       className="mb-5 flex items-center text-xl font-extralight text-body-color"
@@ -57,7 +55,7 @@ const AboutSectionOne = () => {
   );
 
   return (
-    <motion.div
+    <motion.section
       id="about"
       className="pt-16 z-20 md:pt-20 lg:pt-28"
       initial="hidden"
@@ -67,7 +65,7 @@ const AboutSectionOne = () => {
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 font-extralight dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
-            {/* Columna de Texto */}
+            {/* Columna de texto */}
             <motion.div className="w-full px-4 lg:w-1/2" variants={fadeInLeft}>
               <SectionTitle
                 title={content[language].sectionTitle}
@@ -75,61 +73,84 @@ const AboutSectionOne = () => {
                 mb="44px"
               />
 
-              <motion.div className="mb-12 max-w-[570px] lg:mb-0" variants={fadeInLeft}>
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    {content[language].list1.map((text, index) => (
-                      <List key={index} text={text} />
-                    ))}
-                  </div>
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    {content[language].list2.map((text, index) => (
-                      <List key={index} text={text} />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
+              <motion.div
+  className="mb-12 max-w-[570px] lg:mb-0"
+  initial="visible"
+  animate="visible"
+  variants={fadeInLeft}
+>
+  <div className="mx-[-12px] flex flex-wrap">
+    <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+      {content[language].list1.map((text, index) => (
+        <List key={`list1-${index}`} text={text} />
+      ))}
+    </div>
+    <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
+      {content[language].list2.map((text, index) => (
+        <List key={`list2-${index}`} text={text} />
+      ))}
+    </div>
+  </div>
+</motion.div>
             </motion.div>
 
-            {/* Columna de Imagen y animaciones */}
-            <motion.div className="w-full px-4 lg:w-1/2" variants={fadeInRight}>
-              <div className="relative mx-auto aspect-[25/24] max-w-[600px]">
-                <motion.div variants={fadeInRight}>
-                  <Image
-                    src="/images/about/image-3.jpg"
-                    alt="about-background"
-                    fill
-                    className="relative -z-10 scale-75 lg:ml-8 opacity-80"
-                  />
-                </motion.div>
-                <motion.div
-                  className="relative border-primary/10 bg-primary/5 -z-10 h-96 w-80 border backdrop-blur-[6px] dark:border-white/10 dark:bg-white/10"
-                  initial={{ opacity: 0, x: 120, y: 210 }}
-                  animate={{ opacity: 1, x: 20, y: 210 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                />
-                <motion.div variants={fadeInRight}>
-                  <Image
-                    src="/images/about/image-2.jpg"
-                    alt="about-image"
-                    fill
-                    className="relative mx-auto max-h-80 max-w-80 drop-shadow-three dark:hidden dark:drop-shadow-none lg:mr-80"
-                  />
-                </motion.div>
-                <motion.div variants={fadeInRight}>
-                  <Image
-                    src="/images/about/image-2.jpg"
-                    alt="about-image"
-                    fill
-                    className="relative mx-auto hidden max-h-96 max-w-80 drop-shadow-three dark:block dark:drop-shadow-none translate-y-[230px] lg:mr-72"
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
+{/* Columna de imagen */}
+<motion.div className="w-full px-4 lg:w-1/2" variants={fadeInRight}>
+  {/* Versión mobile: dos imágenes apiladas */}
+  <div className="relative mx-auto max-w-md space-y-6 lg:hidden">
+    <div className="relative w-full aspect-video overflow-hidden rounded-xl shadow-lg">
+      <Image
+        src="/images/about/image-3.jpg"
+        alt="Team working"
+        layout="fill"
+        objectFit="cover"
+        className="rounded-xl"
+      />
+    </div>
+    <div className="relative w-full aspect-video overflow-hidden rounded-xl shadow-lg">
+      <Image
+        src="/images/about/image-2.jpg"
+        alt="Developer screen"
+        layout="fill"
+        objectFit="cover"
+        className="rounded-xl"
+      />
+    </div>
+  </div>
+
+  {/* Versión desktop: fondo + imagen superpuesta */}
+  <div className="relative hidden lg:block mx-auto max-w-[600px] aspect-[25/24]">
+    {/* Imagen de fondo */}
+    <Image
+      src="/images/about/image-3.jpg"
+      alt="about-background"
+      fill
+      className="relative -z-10 scale-75 opacity-80 lg:ml-8 rounded-xl"
+    />
+
+    {/* Caja de fondo translúcida */}
+    <motion.div
+      className="absolute border-primary/10 bg-primary/5 -z-10 h-96 w-80 border backdrop-blur-[6px] dark:border-white/10 dark:bg-white/10 rounded-xl"
+      initial={{ opacity: 0, x: 120, y: 210 }}
+      animate={{ opacity: 1, x: 20, y: 210 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    />
+
+    {/* Imagen frontal clara */}
+    <Image
+      src="/images/about/image-2.jpg"
+      alt="about-image"
+      width={300}
+      height={400}
+  className="absolute top-[240px] right-55 drop-shadow-three hidden dark:block rounded-xl"
+      />
+  </div>
+</motion.div>
+
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

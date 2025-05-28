@@ -12,7 +12,7 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
         </div>
         
         {/* Título */}
-        <h3 className="mb-5 text-6xl font-extralight text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+       <h3 className="mb-5 text-xl sm:text-xl md:text-2xl lg:text-xl xl:text-2xl font-extralight text-black dark:text-white">
           {title}
         </h3>
         
