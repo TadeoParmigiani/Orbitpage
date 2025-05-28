@@ -1,81 +1,99 @@
-import NewsLatterBox from "./NewsLatterBox";
+"use client";
+import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
 
-const Contact = () => {
+const Contacto = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    es: {
+      title: "Hablemos sobre tu proyecto",
+      paragraph:
+        "Cuéntanos qué necesitas y nuestro equipo se pondrá en contacto contigo lo antes posible.",
+      nameLabel: "Tu Nombre",
+      namePlaceholder: "Ingresa tu nombre",
+      emailLabel: "Tu Correo Electrónico",
+      emailPlaceholder: "Ingresa tu correo",
+      messageLabel: "Tu Mensaje",
+      messagePlaceholder: "Describe tu consulta",
+      buttonText: "Enviar",
+    },
+    en: {
+      title: "Let's talk about your project",
+      paragraph:
+        "Tell us what you need and our team will get in touch with you as soon as possible.",
+      nameLabel: "Your Name",
+      namePlaceholder: "Enter your name",
+      emailLabel: "Your Email",
+      emailPlaceholder: "Enter your email",
+      messageLabel: "Your Message",
+      messagePlaceholder: "Describe your inquiry",
+      buttonText: "Send",
+    },
+  };
+
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <section id="contacto" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
-            <div
-              className="mb-12 rounded-sm bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
-              data-wow-delay=".15s
-              "
-            >
-              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Need Help? Open a Ticket
-              </h2>
-              <p className="mb-12 text-base font-medium text-body-color">
-                Our support team will get back to you ASAP via email.
-              </p>
+        <div className="-mx-4 flex flex-wrap lg:flex-nowrap items-center">
+          {/* Sección de texto a la izquierda */}
+          <div className="w-full px-4 lg:w-1/3">
+            <h2 className="mb-4 text-6xl font-extralight text-black dark:text-primary sm:text-4xl">
+              {content[language].title}
+            </h2>
+            <p className="mb-6 text-xl font-extralight text-body-color">
+              {content[language].paragraph}
+            </p>
+          </div>
+
+          {/* Sección del formulario a la derecha */}
+          <div className="w-full px-4 lg:w-2/3">
+            <div className="rounded-md bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px]">
               <form>
                 <div className="-mx-4 flex flex-wrap">
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="name"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Name
+                    <div className="mb-6">
+                      <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
+                        {content[language].nameLabel}
                       </label>
                       <input
                         type="text"
-                        placeholder="Enter your name"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                        placeholder={content[language].namePlaceholder}
+                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       />
                     </div>
                   </div>
                   <div className="w-full px-4 md:w-1/2">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="email"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Email
+                    <div className="mb-6">
+                      <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
+                        {content[language].emailLabel}
                       </label>
                       <input
                         type="email"
-                        placeholder="Enter your email"
-                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                        placeholder={content[language].emailPlaceholder}
+                        className="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       />
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <div className="mb-8">
-                      <label
-                        htmlFor="message"
-                        className="mb-3 block text-sm font-medium text-dark dark:text-white"
-                      >
-                        Your Message
+                    <div className="mb-6">
+                      <label className="mb-2 block text-sm font-medium text-dark dark:text-white">
+                        {content[language].messageLabel}
                       </label>
                       <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Enter your Message"
-                        className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                        rows={4}
+                        placeholder={content[language].messagePlaceholder}
+                        className="border-stroke w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:bg-[#2C303B]"
                       ></textarea>
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
-                      Submit Ticket
+                    <button className="w-full rounded-md bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90">
+                      {content[language].buttonText}
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-          </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
-            <NewsLatterBox />
           </div>
         </div>
       </div>
@@ -83,4 +101,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contacto;

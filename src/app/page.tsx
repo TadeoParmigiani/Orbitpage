@@ -10,10 +10,11 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
+import ValuesSection from "@/components/valores/valores";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+  title: "Orbit",
+  description: "Transformamos ideas en soluciones",
   // other metadata
 };
 
@@ -22,9 +23,21 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
-      <Features />
-      <Brands />
-      <Contact />
+      <section id="sobre-nosotros"   className="relative z-20 bg-[#121723] py-8">
+        <AboutSectionOne />
+      </section>
+      <section id="nuestros-servicios" className="relative z-20 bg-[#121723] py-16">
+        <Features />
+      </section>
+      <section id="nuestros-valores">
+        <ValuesSection />
+      </section>
+      <section id="testimonios">
+        <Testimonials />
+      </section>
+      <section id="contacto" className="relative z-20 bg-[#121723]">
+        <Contact />
+      </section>
     </>
   );
 }
