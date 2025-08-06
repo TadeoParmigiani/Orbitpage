@@ -15,6 +15,9 @@ import ValuesSection from "@/components/valores/valores";
 export const metadata: Metadata = {
   title: "Orbit",
   description: "Transformamos ideas en soluciones",
+    icons: {
+    icon: '/images/about/orbit.png', // Si tienes este archivo
+  },
   // other metadata
 };
 
