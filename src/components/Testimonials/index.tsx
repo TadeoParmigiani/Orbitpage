@@ -9,69 +9,69 @@ const teamData = {
     {
       id: 1,
       name: "Tadeo Parmigiani",
-      role: "Líder Técnico",
+      role: "Estudiante de ingeniería",
       image: "/images/testimonials/FOTO CV.JPG",
       linkedin: "https://www.linkedin.com/in/tadeoparmigiani/",
       github: "https://github.com/TadeoParmigiani",
     },
     {
       id: 2,
-      name: "Ezequiel Martin",
-      role: "Desarrollador Full Stack",
+      name: "Juan Cruz Bocadi",
+      role: "Estudiante de ingeniería",
       image: "/images/testimonials/eze.jpg",
       linkedin: "https://www.linkedin.com/in/ezequielnicolasmartin/",
       github: "#",
     },
-    {
-      id: 3,
-      name: "Agostino Scopetta",
-      role: "Desarrollador Full Stack",
-      image: "/images/testimonials/scope.jpeg",
-      linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
-      github: "#",
-    },
-    {
-      id: 4,
-      name: "Fabrizio Pelozzi",
-      role: "Desarrollador Full Stack",
-      image: "/images/testimonials/fabras.png",
-      linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
-      github: "#",
-    },
+    // {
+    //   id: 3,
+    //   name: "Agostino Scopetta",
+    //   role: "Desarrollador Full Stack",
+    //   image: "/images/testimonials/scope.jpeg",
+    //   linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
+    //   github: "#",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Fabrizio Pelozzi",
+    //   role: "Desarrollador Full Stack",
+    //   image: "/images/testimonials/fabras.png",
+    //   linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
+    //   github: "#",
+    // },
   ],
   en: [
     {
       id: 1,
       name: "Tadeo Parmigiani",
-      role: "Technical Lead",
+      role: "Engineering student",
       image: "/images/testimonials/FOTO CV.JPG",
       linkedin: "https://www.linkedin.com/in/tadeoparmigiani/",
       github: "https://github.com/TadeoParmigiani",
     },
     {
       id: 2,
-      name: "Ezequiel Martin",
-      role: "Full Stack Developer",
-      image: "/images/testimonials/eze.jpg",
-      linkedin: "https://www.linkedin.com/in/ezequielnicolasmartin/",
-      github: "#",
+      name: "Juan Cruz Bocadi",
+      role: "Engineering student",
+      image: "/images/testimonials/bocadi.jpg",
+      linkedin: "",
+      github: "https://github.com/JuanBocadi",
     },
-    {
-      id: 3,
-      name: "Agostino Scopetta",
-      role: "Full Stack Developer",
-      image: "/images/testimonials/scope.jpeg",
-      linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
-      github: "#",
-    },
-    {
-      id: 4,
-      name: "Fabrizio Pelozzi",
-      role: "Full Stack Developer",
-      image: "/images/testimonials/fabras.png",
-      linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
-      github: "#",
-    },
+    // {
+    //   id: 3,
+    //   name: "Agostino Scopetta",
+    //   role: "Full Stack Developer",
+    //   image: "/images/testimonials/scope.jpeg",
+    //   linkedin: "https://www.linkedin.com/in/agostino-scopetta/",
+    //   github: "#",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Fabrizio Pelozzi",
+    //   role: "Full Stack Developer",
+    //   image: "/images/testimonials/fabras.png",
+    //   linkedin: "https://www.linkedin.com/in/fabriziopelozzi/",
+    //   github: "#",
+    // },
   ],
 };
 
@@ -127,11 +127,11 @@ const TeamSection = () => {
         </motion.div>
 
         {/* 🔥 Animamos las tarjetas */}
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {teamData[language].map((member, index) => (
             <motion.div
               key={member.id}
-              className="bg-white dark:bg-bg-color-dark rounded-2xl shadow-lg p-6 text-center transition-transform transform hover:scale-105"
+              className="w-full max-w-sm mx-auto bg-white dark:bg-gray-dark rounded-2xl shadow-lg p-6 text-center transition-transform transform hover:scale-105"
               variants={fadeInScale}
               initial="hidden"
               whileInView="visible"

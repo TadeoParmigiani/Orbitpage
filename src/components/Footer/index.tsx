@@ -1,8 +1,60 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/../LanguageContext"; // Ajusta la ruta según tu estructura
 
 const Footer = () => {
+  const { language } = useLanguage();
+
+  const content = {
+    es: {
+      description: "Orbit es una consultora especializada en desarrollo de software, brindando un servicio basado en compromiso, precisión y excelencia.",
+      links: {
+        title: "Enlaces",
+        home: "Inicio",
+        about: "Sobre Nosotros", 
+        services: "Nuestro Servicios",
+        values: "Nuestros valores",
+        team: "Equipo",
+        contact: "Contacto"
+      },
+      terms: {
+        title: "Términos y condiciones",
+        privacy: "Política de Privacidad"
+      },
+      contact: {
+        title: "Contacto",
+        city: "Ciudad: Rosario, Santa Fe",
+        phone: "Teléfono:",
+        email: "Email:"
+      },
+      copyright: "© 2025 Orbit. Todos los derechos reservados."
+    },
+    en: {
+      description: "Orbit is a consultancy specialized in software development, providing a service based on commitment, precision and excellence.",
+      links: {
+        title: "Links",
+        home: "Home",
+        about: "About Us",
+        services: "Our Services", 
+        values: "Our Values",
+        team: "Team",
+        contact: "Contact"
+      },
+      terms: {
+        title: "Terms and Conditions",
+        privacy: "Privacy Policy"
+      },
+      contact: {
+        title: "Contact",
+        city: "City: Rosario, Santa Fe",
+        phone: "Phone:",
+        email: "Email:"
+      },
+      copyright: "© 2025 Orbit. All rights reserved."
+    }
+  };
+
   return (
     <>
       <footer className="relative z-10 bg-white pt-10 dark:bg-gray-dark md:pt-16 lg:pt-12">
@@ -10,7 +62,7 @@ const Footer = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[450px] lg:mb-16">
-                <Link href="/" className="mb-8 inline-block">
+                <Link href="/" className="mb-2 inline-block">
                   <Image
                     src="/images/logo/logo-2.svg"
                     alt="logo"
@@ -26,8 +78,8 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                Orbit es una consultora especializada en desarrollo de software, brindando un servicio basado en compromiso, precisión y excelencia. Nuestro equipo trabaja con los más altos estándares para garantizar calidad y eficiencia en cada proyecto.
+                <p className="mb-7 text-sm leading-relaxed text-body-color dark:text-body-color-dark">
+                  {content[language].description}
                 </p>
                 <div className="flex items-center">
                   <a
@@ -87,9 +139,9 @@ const Footer = () => {
             </div>
 
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
+              <div className="mb-8 lg:mb-4">
                 <h2 className="mb-6 text-xl font-bold text-black dark:text-white">
-                  Enlances
+                  {content[language].links.title}
                 </h2>
                 <ul>
                   <li>
@@ -97,47 +149,47 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Inicio
+                      {content[language].links.home}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/#sobre-nosotros"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Sobre Nosotros
+                      {content[language].links.about}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/#nuestros-servicios"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Nuestro Servicios
+                      {content[language].links.services}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/#nuestros-valores"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Nuestros valores
+                      {content[language].links.values}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/#testimonios"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Equipo
+                      {content[language].links.team}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/#contacto"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Contacto
+                      {content[language].links.contact}
                     </Link>
                   </li>
                 </ul>
@@ -147,19 +199,17 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-6 text-xl font-bold text-black dark:text-white">
-                  Terminos y condiciones
+                  {content[language].terms.title}
                 </h2>
                 <ul>
-                 
                   <li>
                     <Link
                       href="/"
-                      className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
+                      className="mb-4 inline-block text-sm text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Politica de Privacidad
+                      {content[language].terms.privacy}
                     </Link>
                   </li>
-                  
                 </ul>
               </div>
             </div>
@@ -167,17 +217,17 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-6 text-xl font-bold text-black dark:text-white">
-                  Contacto
+                  {content[language].contact.title}
                 </h2>
                 <ul>
-                  <li className="mb-4 text-base text-body-color dark:text-body-color-dark">
-                    Ciudad: Rosario, Santa Fe
+                  <li className="mb-4 text-sm text-body-color dark:text-body-color-dark">
+                    {content[language].contact.city}
                   </li>
-                  <li className="mb-4 text-base text-body-color dark:text-body-color-dark">
-                    Teléfono: <a href="tel:+123456789" className="hover:text-primary">+123 456 789</a>
+                  <li className="mb-4 text-sm text-body-color dark:text-body-color-dark">
+                    {content[language].contact.phone} <a href="tel:+123456789" className="hover:text-primary">+123 456 789</a>
                   </li>
-                  <li className="mb-4 text-base text-body-color dark:text-body-color-dark">
-                    Email: <a href="mailto:correo@ejemplo.com" className="hover:text-primary">orbitdevrosario@gmail.com</a>
+                  <li className="mb-4 text-sm text-body-color dark:text-body-color-dark">
+                    {content[language].contact.email} <a href="mailto:orbitdevrosario@gmail.com" className="hover:text-primary">orbitdevrosario@gmail.com</a>
                   </li>
                 </ul>
               </div>
@@ -186,9 +236,9 @@ const Footer = () => {
           </div>
 
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
-          <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white font-normal">
-            © 2025 Orbit. Todos los derechos reservados. Powered by Agostino José Scopetta
+          <div className="py-5">
+            <p className="text-center text-sm text-body-color dark:text-white font-normal">
+              {content[language].copyright}
             </p>
           </div>
         </div>
@@ -200,8 +250,6 @@ const Footer = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-           
-           
             <defs>
               <filter
                 id="filter0_f_94:899"
