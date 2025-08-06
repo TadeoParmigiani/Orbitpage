@@ -23,9 +23,9 @@ const ValuesSection = () => {
     es: {
       title: "Nuestros Valores",
       paragraph1:
-        "En nuestra empresa, nos guiamos por principios fundamentales que nos permiten alcanzar la excelencia en cada proyecto. Creemos en la innovación constante, en la calidad de lo que entregamos y en el trabajo colaborativo que fortalece a nuestro equipo. Estos valores son los cimientos que nos permiten desarrollar soluciones tecnológicas que generan un impacto positivo en nuestros clientes.",
+        "En nuestra empresa nos guiamos por la innovación, la calidad y el trabajo colaborativo para ofrecer soluciones tecnológicas que generen impacto positivo. Estos valores nos permiten alcanzar la excelencia en cada proyecto.",
       paragraph2:
-        "Nos impulsa la pasión por transformar ideas en realidades, la transparencia en cada acción que tomamos y la búsqueda incansable de nuevas formas de aportar valor. Nuestro compromiso es ir más allá de lo esperado, superando desafíos con creatividad y determinación, siempre con la mirada puesta en un futuro sostenible y próspero para todos.",
+        "Nos motiva transformar ideas en realidad con pasión, transparencia y creatividad. Asumimos cada desafío con compromiso, mirando siempre hacia un futuro sostenible y próspero para todos.",
       planets: [
         { text: "Innovación", x: 350, y: 250 },
         { text: "Compromiso", x: 150, y: 250 },
@@ -37,9 +37,9 @@ const ValuesSection = () => {
     en: {
       title: "Our Values",
       paragraph1:
-        "At our company, we are guided by fundamental principles that enable us to achieve excellence in every project. We believe in constant innovation, the quality of our deliverables, and collaborative work that strengthens our team. These values are the foundation that allows us to develop technological solutions that make a positive impact on our clients.",
+        "At our company, we are guided by innovation, quality, and collaborative work to deliver technological solutions that create a positive impact. These values enable us to achieve excellence in every project.",
       paragraph2:
-        "We are driven by the passion to turn ideas into realities, transparency in every action we take, and the relentless pursuit of new ways to add value. Our commitment is to exceed expectations, overcoming challenges with creativity and determination, always with an eye on a sustainable and prosperous future for all.",
+        "We are driven by the passion to turn ideas into reality with transparency and creativity. We take on every challenge with commitment, always looking toward a sustainable and prosperous future for all.",
       planets: [
         { text: "Innovation", x: 350, y: 250 },
         { text: "Commitment", x: 150, y: 250 },
@@ -69,7 +69,7 @@ const ValuesSection = () => {
             {title}
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-500 dark:text-gray-300 mt-4 max-w-3xl font-extralight"
+            className="text-xl text-gray-500 dark:text-gray-300 mt-11 max-w-3xl font-extralight"
             variants={fadeInUp}
           >
             {paragraph1}
