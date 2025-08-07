@@ -42,9 +42,9 @@ const featureTranslations = {
   },
   4: {
     en: {
-      title: "SaaS Development",
+      title: "Desktop Applications",
       paragraph:
-        "We design and develop scalable SaaS platforms, enabling you to offer cloud services with cutting-edge technology.",
+        "We build powerful and efficient desktop applications tailored to your needs, using modern and cross-platform technology.",
     },
   },
   5: {

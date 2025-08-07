@@ -224,7 +224,7 @@ const Footer = () => {
                     {content[language].contact.city}
                   </li>
                   <li className="mb-4 text-sm text-body-color dark:text-body-color-dark">
-                    {content[language].contact.phone} <a href="tel:+123456789" className="hover:text-primary">+123 456 789</a>
+                    {content[language].contact.phone} <a href="#" className="hover:text-primary">+54 9 341 693-0246</a>
                   </li>
                   <li className="mb-4 text-sm text-body-color dark:text-body-color-dark">
                     {content[language].contact.email} <a href="mailto:orbitdevrosario@gmail.com" className="hover:text-primary">orbitdevrosario@gmail.com</a>
