@@ -27,14 +27,14 @@ const Hero = () => {
       title1: "Donde las Ideas Giran en Soluciones",
       title2: "Innovación y Tecnología para tu Negocio",
       description:
-        "En Orbit, combinamos creatividad y tecnología para ofrecer soluciones innovadoras que llevan tu negocio al siguiente nivel.",
+        "En OrbitDev, combinamos creatividad y tecnología para ofrecer soluciones innovadoras que llevan tu negocio al siguiente nivel.",
       contactButton: "¡Contáctanos!",
     },
     en: {
       title1: "Where Ideas Turn into Solutions",
       title2: "Innovation and Technology for Your Business",
       description:
-        "At Orbit, we combine creativity and technology to provide innovative solutions that take your business to the next level.",
+        "At OrbitDev, we combine creativity and technology to provide innovative solutions that take your business to the next level.",
       contactButton: "Contact Us!",
     },
   };
@@ -76,6 +76,7 @@ const Hero = () => {
               transition={{ duration: 1.5 }}
               className="w-full md:w-1/2 text-center md:text-left"
             >
+              <h1 className="sr-only">OrbitDev - Desarrollo Web y Software en Argentina</h1>
               <h2 className="mb-5 font-semibold leading-tight text-3xl sm:text-4xl md:text-5xl">
                 <Typewriter
                   options={{
