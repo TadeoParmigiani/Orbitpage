@@ -8,7 +8,7 @@ const Footer = () => {
 
   const content = {
     es: {
-      description: "Orbit es una consultora especializada en desarrollo de software, brindando un servicio basado en compromiso, precisión y excelencia.",
+      description: "OrbitDev es una consultora especializada en desarrollo de software, brindando un servicio basado en compromiso, precisión y excelencia.",
       links: {
         title: "Enlaces",
         home: "Inicio",
@@ -28,10 +28,10 @@ const Footer = () => {
         phone: "Teléfono:",
         email: "Email:"
       },
-      copyright: "© 2025 Orbit. Todos los derechos reservados."
+      copyright: "© 2025 OrbitDev. Todos los derechos reservados."
     },
     en: {
-      description: "Orbit is a consultancy specialized in software development, providing a service based on commitment, precision and excellence.",
+      description: "OrbitDev is a consultancy specialized in software development, providing a service based on commitment, precision and excellence.",
       links: {
         title: "Links",
         home: "Home",
