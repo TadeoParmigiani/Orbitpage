@@ -156,6 +156,35 @@ const Hero = () => {
       >
         <FontAwesomeIcon icon={faChevronDown} className="text-gray-400 text-3xl" />
       </motion.div>
+      {/* Schema markup invisible para SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "OrbitDev",
+            "alternateName": "Orbit",
+            "description": texts[language].description,
+            "url": "https://www.orbitdev.com.ar",
+            "logo": "https://www.orbitdev.com.ar/images/about/orbit.png",
+            "sameAs": [
+              "https://www.orbitdev.com.ar"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "areaServed": "AR",
+              "availableLanguage": ["Spanish", "English"]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AR",
+              "addressRegion": "Santa Fe"
+            }
+          })
+        }}
+      />
     </section>
   );
 };
