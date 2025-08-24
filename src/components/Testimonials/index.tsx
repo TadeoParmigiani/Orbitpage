@@ -98,12 +98,12 @@ const TeamSection = () => {
     es: {
       title: "Conoce a Nuestro Equipo",
       paragraph:
-        "En Orbit, somos un grupo de desarrolladores y creativos apasionados que trabajamos juntos para dar vida a ideas innovadoras. Cada miembro aporta su talento y compromiso para crear soluciones con impacto positivo.",
+        "En OrbitDev, somos un grupo de desarrolladores y creativos apasionados que trabajamos juntos para dar vida a ideas innovadoras. Cada miembro aporta su talento y compromiso para crear soluciones con impacto positivo.",
     },
     en: {
       title: "Meet Our Team",
       paragraph:
-        "At Orbit, we are a group of passionate developers and creatives working together to bring innovative ideas to life. Each member contributes their talent and commitment to creating solutions with a positive impact.",
+        "At OrbitDev, we are a group of passionate developers and creatives working together to bring innovative ideas to life. Each member contributes their talent and commitment to creating solutions with a positive impact.",
     },
   };
 
