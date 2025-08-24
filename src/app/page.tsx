@@ -13,13 +13,29 @@ import { Metadata } from "next";
 import ValuesSection from "@/components/valores/valores";
 
 export const metadata: Metadata = {
-  title: "Orbit",
-  description: "Transformamos ideas en soluciones",
-    icons: {
-    icon: '/images/about/orbit.png', // Si tienes este archivo
+  title: "OrbitDev - Desarrollo Web y Software en Argentina",
+  description: "OrbitDev es una empresa de desarrollo web y software. Transformamos ideas en soluciones digitales modernas y escalables.",
+  icons: {
+    icon: "/images/about/orbit.png",
   },
-  // other metadata
+  openGraph: {
+    title: "OrbitDev - Desarrollo Web y Software en Argentina",
+    description: "En OrbitDev transformamos ideas en soluciones digitales innovadoras.",
+    url: "https://www.orbitdev.com.ar",
+    siteName: "OrbitDev",
+    images: [
+      {
+        url: "/images/about/orbit.png",
+        width: 800,
+        height: 600,
+        alt: "OrbitDev logo",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
 };
+
 
 export default function Home() {
   return (
